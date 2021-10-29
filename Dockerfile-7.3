@@ -17,7 +17,6 @@ RUN set -eux; \
     apt-get upgrade -y; \
     apt-get install -y --no-install-recommends \
             curl \
-            libicu-dev \
             libmemcached-dev \
             libz-dev \
             libpq-dev \
@@ -36,12 +35,10 @@ RUN set -eux; \
     docker-php-ext-install pdo_pgsql; \
     # Install the PHP gd library
     docker-php-ext-configure gd \
-            --prefix=/usr \
-            --with-jpeg \
-            --with-webp \
-            --with-xpm \
-            --with-freetype; \
-    docker-php-ext-install gd;
+            --with-jpeg-dir=/usr/lib \
+            --with-webp-dir=/usr/lib \
+            --with-freetype-dir=/usr/include/freetype2; \
+    docker-php-ext-install gd; \
 
 # Clean up
 RUN apt-get clean && \
