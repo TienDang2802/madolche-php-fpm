@@ -38,7 +38,7 @@ RUN set -eux; \
             --with-jpeg-dir=/usr/lib \
             --with-webp-dir=/usr/lib \
             --with-freetype-dir=/usr/include/freetype2; \
-    docker-php-ext-install gd; \
+    docker-php-ext-install gd;
 
 # Clean up
 RUN apt-get clean && \
