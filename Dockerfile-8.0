@@ -17,6 +17,7 @@ RUN set -eux; \
     apt-get upgrade -y; \
     apt-get install -y --no-install-recommends \
             curl \
+            libicu-dev \
             libmemcached-dev \
             libz-dev \
             libpq-dev \
